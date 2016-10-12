@@ -1,0 +1,6 @@
+name: FireBall
+main: NawafPlugin\Main
+author: Nawaf1b,Iba4x
+version: 1.0.0
+api: 2.0.0
+load: STARTUP
