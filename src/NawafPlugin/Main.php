@@ -39,9 +39,7 @@ class Main extends PluginBase implements \pocketmine\event\Listener{
 			]),$player,1200);
                         
 			$fb->spawnToAll();
-      $fb->setMotion($fb->getMotion()->multiply(self::motion));
-                        
+                        $fb->setMotion($fb->getMotion()->multiply(self::motion));
 			}
-}
-}
+                    }}
 ?>
