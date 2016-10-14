@@ -21,7 +21,7 @@ class Main extends PluginBase implements \pocketmine\event\Listener{
 		$player = $event->getPlayer();
 			if($event->getItem()->getId() == 369){
       
-			$fb = new Entity\FireBall($player->level->getChunk($player->x >> 4, $player->z >> 4), new \pocketmine\nbt\tag\CompoundTag("", [
+			$fb = new \NawafPlugin\Entity\FireBall($player->level->getChunk($player->x >> 4, $player->z >> 4), new \pocketmine\nbt\tag\CompoundTag("", [
 			"Pos" => new \pocketmine\nbt\tag\ListTag("Pos", [
 				new \pocketmine\nbt\tag\DoubleTag("", $player->x),
 				new \pocketmine\nbt\tag\DoubleTag("", $player->y + 2),
