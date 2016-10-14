@@ -2,6 +2,8 @@
 
 namespace NawafPlugin\Entity;
 
+use pocketmine\nbt\tag\CompoundTag;
+
 class FireBall extends \pocketmine\entity\Projectile{
     
 	const NETWORK_ID = 94;
@@ -14,9 +16,10 @@ class FireBall extends \pocketmine\entity\Projectile{
 	protected $drag = 0.01;
 
         private $lg;
-        public function __construct(\pocketmine\level\format\FullChunk $chunk, CompoundTag $nbt, Entity $shootingEntity = null,$lg = 1200){
+        
+        public function __construct(\pocketmine\level\format\FullChunk $chunk, CompoundTag $nbt, \pocketmine\entity\Entity $shootingEntity = null,$lg = 1200){
                 $this->lg = $lg;
-                Entity::registerEntity(FireBall::class);
+                \pocketmine\entity\Entity::registerEntity(FireBall::class);
 		parent::__construct($chunk, $nbt, $shootingEntity);
 	}
 
@@ -46,7 +49,7 @@ class FireBall extends \pocketmine\entity\Projectile{
 	}
 
 	public function spawnTo(\pocketmine\Player $player){
-		$pk = new AddEntityPacket();
+		$pk = new \pocketmine\network\protocol\AddEntityPacket();
 		$pk->type = FireBall::NETWORK_ID;
 		$pk->eid = $this->getId();
 		$pk->x = $this->x;
@@ -61,3 +64,4 @@ class FireBall extends \pocketmine\entity\Projectile{
 		parent::spawnTo($player);
 	}
 }
+
